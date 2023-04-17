@@ -12,12 +12,12 @@ export default function Home({
     <div className=" h-screen flex flex-col justify-around items-center bg-sky-200">
       <form
         className=" flex flex-col gap-2 w-full px-5 sm:px-20 md:px-40 lg:px-60"
-        // onSubmit={(e) => {
-        //   axios
-        //     .post("nextjs-prisma-pmukjowf4-asmeydan.vercel.app/api/users", {name: name, email: email})
-        //     .then((response) => console.log(response.data))
-        //     .catch((error) => console.error(error));
-        // }}
+        onSubmit={(e) => {
+          axios
+            .post("nextjs-prisma-inky.vercel.app/api/users", {name: name, email: email})
+            .then((response) => console.log(response.data))
+            .catch((error) => console.error(error));
+        }}
       >
         <input
           type="text"
@@ -62,8 +62,8 @@ type Users = {
 };
 
 export async function getStaticProps() {
-  // const res = await fetch("nextjs-prisma-pmukjowf4-asmeydan.vercel.app/api/users");
-  const users: Users[] = [{address: "asd", email: "asd", id: "1", name: "asd"}];
+  const res = await fetch("nextjs-prisma-inky.vercel.app/api/users");
+  const users: Users[] = await res.json();
 
   return {
     props: {
