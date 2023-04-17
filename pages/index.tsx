@@ -14,7 +14,7 @@ export default function Home({
         className=" flex flex-col gap-2 w-full px-5 sm:px-20 md:px-40 lg:px-60"
         onSubmit={(e) => {
           axios
-            .post("http://localhost:3000/api/users", {name: name, email: email})
+            .post("nextjs-prisma-pmukjowf4-asmeydan.vercel.app/api/users", {name: name, email: email})
             .then((response) => console.log(response.data))
             .catch((error) => console.error(error));
         }}
@@ -62,7 +62,7 @@ type Users = {
 };
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/users");
+  const res = await fetch("nextjs-prisma-pmukjowf4-asmeydan.vercel.app/api/users");
   const users: Users[] = await res.json();
 
   return {
